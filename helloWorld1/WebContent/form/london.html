@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CSS Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Style the header */
+    header {
+      background-color: navy;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+      float: left;
+      width: 30%;
+      height: 400px;
+      /* only for demonstration, should be removed */
+      background: #ccc;
+      padding: 20px;
+    }
+
+    /* Style the list inside the menu */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    article {
+      float: left;
+      padding: 20px;
+      width: 70%;
+      background-color: #f1f1f1;
+      height: 400px;
+      /* only for demonstration, should be removed */
+    }
+
+    /* Clear floats after the columns */
+    section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Style the footer */
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+
+      nav,
+      article {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <header>
+    <h2>EDIYA</h2>
+  </header>
+
+  <section>
+    <nav>
+      <ul>
+        <li><a href="london.html">main</a></li>
+        <li><a href="paris.html">coffee</a></li>
+        <li><a href="tokyo.html">bakery</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h2>개인 정보 입력</h2>
+      <form>
+        <p>아 이 디 : <input type="text" name="name"> <input type="submit" value="ID중복검사"></p>
+        <p>생년월일 : <input type="text" name="name"></p>
+        <p>성 별 : <input type="radio" name="sex" value="male" checked>남자<input type="radio" name="sex" value="female" checked>여자 </p>
+        <p>E-mail : <input type="text" name="name"></p>
+        <p>메일수신 : <input type="radio" name="send" value="yes" checked>수신동의<input type="radio" name="send" value="no">수신거부</p>
+        <p>핸드폰 : </p>
+        <p> 직업 : <select name="job">
+            <option value="1">학생</option>
+            <option value="2">직장인</option>
+            <option value="3">기타</option>
+        </select></p>
+        <p>취미 : <input type="checkbox" name="hobby" value="쇼핑" checked> </p>
+      </form>
+    </article>
+  </section>
+
+  <footer>
+    <p>Footer</p>
+  </footer>
+
+</body>
+
+</html>
