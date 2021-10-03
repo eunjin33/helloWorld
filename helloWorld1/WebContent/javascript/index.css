@@ -10,9 +10,9 @@ table>tbody>tr:nth-child(2n+1){
     background-color: rgb(216, 214, 214);
 }
 
-tr.pass{
+td.pass{
     color: blue;
 }
-tr.fail{
+td.fail{
     color: red;
 }
