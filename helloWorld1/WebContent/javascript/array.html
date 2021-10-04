@@ -16,11 +16,16 @@
     <ul id="list">
     </ul>
     <script>
+        const fruits =['apple', 'banana', 'cherry'];
+        const newFruits = fruits.slice(0,2);
+
+        console.log(newFruits);
+
         const inputAry = [];
 
         //세 번째 위치의 값을 지운다 
-        inputAry[2] = null; //a b c d e f 
-        inputAry.splice(); //
+        inputAry[2] = null; 
+        inputAry.splice();
 
 
         function showList(){
@@ -35,7 +40,17 @@
 
         //
         function removeAry(){
-            inputAry.pop();
+            //inputAry.shift();
+            //element의 값을 갖고 오도록
+            //let iv = document.getElementsByTagName('input')[0].value;
+            //let iv = document.getElementById('inputValue').value;
+            let iv = document.querySelector('input[type="text"]').value;
+            for(let i=0; i < inputAry.length; i++){
+                if(inputAry[i] == iv){
+                    inputAry.splice(i, 1)
+                    break;
+                }
+            }
             showList();
         }
 

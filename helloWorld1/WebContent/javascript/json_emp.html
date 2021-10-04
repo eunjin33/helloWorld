@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/json_emp.html</title>
+</head>
+<body>
+    <script>
+        document.write('<table border="1">');
+        let rawData = `"employees":[{"id":1,"first_name":"Melodie","last_name":"Lainge","email":"mlainge0@studiopress.com","gender":"Polygender","ip_address":"245.190.240.122"},
+{"id":2,"first_name":"Ninon","last_name":"Lyfield","email":"nlyfield1@tripod.com","gender":"Male","ip_address":"255.126.112.136"},
+{"id":3,"first_name":"Chas","last_name":"Keady","email":"ckeady2@msu.edu","gender":"Genderqueer","ip_address":"219.39.142.160"},
+{"id":4,"first_name":"Piggy","last_name":"Razzell","email":"prazzell3@ihg.com","gender":"Bigender","ip_address":"166.33.235.196"},
+{"id":5,"first_name":"Deina","last_name":"Menier","email":"dmenier4@ox.ac.uk","gender":"Male","ip_address":"99.255.253.50"},
+{"id":6,"first_name":"Roderic","last_name":"Peggs","email":"rpeggs5@shutterfly.com","gender":"Genderfluid","ip_address":"108.16.120.159"},
+{"id":7,"first_name":"Aube","last_name":"Lyman","email":"alyman6@mac.com","gender":"Non-binary","ip_address":"42.19.215.36"},
+{"id":8,"first_name":"Lowell","last_name":"Benne","email":"lbenne7@blogtalkradio.com","gender":"Polygender","ip_address":"94.79.128.163"},
+{"id":9,"first_name":"Martainn","last_name":"Jerrom","email":"mjerrom8@etsy.com","gender":"Genderqueer","ip_address":"251.34.184.82"},
+{"id":10,"first_name":"Annalee","last_name":"Canto","email":"acanto9@mashable.com","gender":"Male","ip_address":"132.250.63.91"},
+{"id":11,"first_name":"Fidelity","last_name":"Cairns","email":"fcairnsa@weibo.com","gender":"Polygender","ip_address":"190.67.55.4"},
+{"id":12,"first_name":"Othelia","last_name":"Jardein","email":"ojardeinb@house.gov","gender":"Agender","ip_address":"171.181.49.52"},
+{"id":13,"first_name":"Bobby","last_name":"Bankes","email":"bbankesc@cpanel.net","gender":"Agender","ip_address":"154.190.227.3"},
+{"id":14,"first_name":"Calypso","last_name":"Dargavel","email":"cdargaveld@trellian.com","gender":"Non-binary","ip_address":"153.46.87.5"},
+{"id":15,"first_name":"Fergus","last_name":"Dawltrey","email":"fdawltreye@weather.com","gender":"Polygender","ip_address":"57.209.244.116"
+}]`;
+
+  
+    //rawData => object
+    let data = JSON.parse(rawData);
+
+    console.log(data[0].id);
+    console.log(data[0].first_name);
+    console.log(data[0].last_name);
+    console.log(data[0].email);
+    console.log(data[0].gender);
+    console.log(data[0].ip_address);
+
+    document.write('<tr><th>아이디</th><th>이름</th><th>email</th><th>gender</th><th>IP</th>')
+
+        employees.foreach(function (obj, idx, ary){
+            document.write(obj.id)
+        });
+
+   document.write('</table>');
+    </script>
+</body>
+</html>
