@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript/json_emp.html</title>
 </head>
+
 <body>
+
+
     <script>
         document.write('<table border="1">');
-        let rawData = `"employees":[{"id":1,"first_name":"Melodie","last_name":"Lainge","email":"mlainge0@studiopress.com","gender":"Polygender","ip_address":"245.190.240.122"},
+        //global scope : global var
+        //function scope :local var
+        //ES6(2015) block scope : let, const
+        let rawData = `[
+{"id":1,"first_name":"Melodie","last_name":"Lainge","email":"mlainge0@studiopress.com","gender":"Polygender","ip_address":"245.190.240.122"},
 {"id":2,"first_name":"Ninon","last_name":"Lyfield","email":"nlyfield1@tripod.com","gender":"Male","ip_address":"255.126.112.136"},
 {"id":3,"first_name":"Chas","last_name":"Keady","email":"ckeady2@msu.edu","gender":"Genderqueer","ip_address":"219.39.142.160"},
 {"id":4,"first_name":"Piggy","last_name":"Razzell","email":"prazzell3@ihg.com","gender":"Bigender","ip_address":"166.33.235.196"},
@@ -26,24 +34,40 @@
 {"id":15,"first_name":"Fergus","last_name":"Dawltrey","email":"fdawltreye@weather.com","gender":"Polygender","ip_address":"57.209.244.116"
 }]`;
 
-  
-    //rawData => object
-    let data = JSON.parse(rawData);
 
-    console.log(data[0].id);
-    console.log(data[0].first_name);
-    console.log(data[0].last_name);
-    console.log(data[0].email);
-    console.log(data[0].gender);
-    console.log(data[0].ip_address);
+        //rawData => object
+        let data = JSON.parse(rawData);
 
-    document.write('<tr><th>아이디</th><th>이름</th><th>email</th><th>gender</th><th>IP</th>')
+        //.row > div 조건을 만족하는 걸 querySelectorAll 이걸 써서 데이터를 가지고 온다 
+        let ids = document.querySelectorAll('.row > div');
+        console.log(ids[0].innerHTML);
+        //getElementsByClassName 이용해서 데이터를 가지고 온다 
+        let firstName = document.getElementsByClassName('firstName');
+        console.log(firstName[0].innerHTML);
 
-        employees.foreach(function (obj, idx, ary){
-            document.write(obj.id)
-        });
 
-   document.write('</table>');
+        // console.log(ids[0].innerHTML='Smith');
+
+
+        //object => json
+        let json = JSON.stringify(data);
+        console.log(json);
+
+        // console.log(data[0].id);
+        // console.log(data[0].first_name);
+        // console.log(data[0].last_name);
+        // console.log(data[0].email);
+        // console.log(data[0].gender);
+        // console.log(data[0].ip_address);
+
+        // document.write('<tr><th>아이디</th><th>이름</th><th>email</th><th>gender</th><th>IP</th>')
+
+        //     employees.foreach(function (obj, idx, ary){
+        //         document.write(obj.id)
+        // });
+
+        document.write('</table>');
     </script>
 </body>
+
 </html>
