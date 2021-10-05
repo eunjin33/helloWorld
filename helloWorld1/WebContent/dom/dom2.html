@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom/dom2.html</title>
+</head>
+
+<body>
+    <div id="input">
+        이름: <input type="text" id="name" value="홍길동"><br>
+        나이: <input type="number" id="age" value="22"><br>
+        점수: <input type="number" id=score value="88"><br>
+        <button id="btn">추가</button>
+    </div>
+    <div id="show">
+        <ul></ul>
+    </div>
+
+    <script>
+        //이벤트
+        let btn = document.getElementById('btn');
+
+        btn.onclick = function () {
+
+            //사용자 입력값을 읽어옴 
+            let name = document.getElementById('name').value;
+            let age = document.getElementById('age').value;
+            let score = document.getElementById('score').value;
+        }
+
+        //<li></li> 태그 만들기 
+        let liTag = document.createElement('li');
+        let text = document.createElement(name + ',' + age + ',' + score);
+
+        //<li> 태크에 text를 넣겠습니다
+        liTag.appendChild(text);
+
+        let btnTag = document.createElement('button'); //<button></button>  생성
+        btnTag.onclick = function () {
+            console.log(this); //this=> button
+            this.parentNode.remove();
+
+        }
+        text = document.createTextNode('삭제');
+        btnTag.appendChild(text);
+        liTag.appendChild(btnTag);
+
+
+        //<ul>태그에 <li>를 넣겠습니다
+        let ulTag = document.querySelector('#show>ul');
+        ulTag.appendChild(liTag);
+    </script>
+</body>
+
+</html>

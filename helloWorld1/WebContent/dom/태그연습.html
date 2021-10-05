@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그연습.html</title>
+</head>
+
+<body>
+    <!-- <form action="post.jsp" name="frm">
+        <lable for="emp">아이디</lable>
+        <input type="text" name="" id="emp">
+        <lable for="name">이름</lable>
+        <input type="text" name="" id="name">
+        <input type="submit" value="전송">
+    </form> -->
+
+    <div id="show"></div>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>아이디</th>
+                <th>이름</th>
+                <th>성별</th>
+                <th>연락처</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>hongee</td>
+                <td>홍길동</td>
+                <td>남자</td>
+                <td>010-1234-5678</td>
+            </tr>
+            <tr>
+                <td>minsunie</td>
+                <td>김민순</td>
+                <td>여자</td>
+                <td>010-3333-5543</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+
+        let rawData = `[{"id":"hongee", "이름":"홍길동", "성별":"남자", "연락처":"010-1234-5678" },
+                     {"id":"minsunie", "이름":"김민순", "성별":"여자", "연락처":"010-3333-5543"}]`;
+
+        let data = JSON.parse(rawData);
+
+        //console.log(data);
+
+        let table = document.createElement('table');
+        table.setAttribute('border', '1');
+        let thead = document.createElement('thead');
+        table.appendChild(thead);
+        let tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+
+        //타이틀
+        let tr =document.createElement('tr');
+        thead.appendChild(tr);
+        for(let field in data[0]){
+            th =document.createElement('th');
+            text = document.createTextNode(field);
+            th.appendChild(text);
+            tr.appendChild(th);
+        }
+
+
+        //데이터
+        for(let row of data){
+            let tr = document.createElement('tr');
+            tr.setAttribute('id', row.id);
+        }
+
+        let show = document.getElementById('show');
+        show.appendChild(table);
+    </script>
+</body>
+
+</html>
