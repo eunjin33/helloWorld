@@ -48,7 +48,6 @@
     </table>
 
     <script>
-
         let rawData = `[{"id":"hongee", "이름":"홍길동", "성별":"남자", "연락처":"010-1234-5678" },
                      {"id":"minsunie", "이름":"김민순", "성별":"여자", "연락처":"010-3333-5543"}]`;
 
@@ -64,10 +63,10 @@
         table.appendChild(tbody);
 
         //타이틀
-        let tr =document.createElement('tr');
+        let tr = document.createElement('tr');
         thead.appendChild(tr);
-        for(let field in data[0]){
-            th =document.createElement('th');
+        for (let field in data[0]) {
+            th = document.createElement('th');
             text = document.createTextNode(field);
             th.appendChild(text);
             tr.appendChild(th);
@@ -75,7 +74,7 @@
 
 
         //데이터
-        for(let row of data){
+        for (let row of data) {
             let tr = document.createElement('tr');
             tr.setAttribute('id', row.id);
         }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom/ajax.html</title>
+</head>
+<body>
+    <h2>Ajax 처리.</h2>
+    <div id="show"></div> 
+    <script>
+        //서버로 get.json
+        // XMLHttpRequest -오브젝트(파일을 읽어온다)
+        let xhtp = new XMLHttpRequest();
+        //onreadystatechange(이벤트 관련 속성) 서버의 상태가 변할 때? 
+        xhtp.onreadystatechange = function(){
+            //readyState -4번의 과정을 통해서 연결...? 
+            console.log(xhtp.readyState+ ','+xhtp.status);
+            //요청한 파일을 정상적으로 받았다 확인하는 과정 readyState== 4번이고, status=2=00
+            if(xhtp.readyState == 4 && xhtp.status == 200 ){
+                //responseText 우리가 요청한 페이지 정보를 응답 결과로 담아주는 것 
+                console.log(xhtp.responseText);
+                let data = JSON.parse(xhtp.responseText);
+                //console.log(data);
+                createPage(data);
+            }else{
+                console.error('server 처리중 에러발생');
+            }
+        }
+        //open요청할 페이지 정보
+        xhtp.open('get', 'get.json');
+
+        //send 서버에 요청을 하는 것 
+        xhtp.send();
+
+        function createPage(ary){
+            // for( in ) 배열의 값을 하나씩 가지고 오는 것 
+            // console.log(ary[0]); //{id:?, first_name:?...}
+            let table, tr, td, txt;
+            table = document.createElement('table');
+            table.setAttribute('border', '1');
+
+            //타이틀 생성 
+            tr = document.createElement('tr'); // 로우 가로 
+            table.appendChild(tr); // <table><tr></tr></table>
+            for(let field in ary[0]){
+                td= document.createElement('th');
+                //th 영역에 텍스트로 삽입 
+                //field를 바꾸는 것 toUpperCase=>대문자로 변환
+                //field를 바꾸는 것  replace (_를 공란으로 바꿔줌 )
+                txt = document.createTextNode(field.toUpperCase().replace('_', ' '));
+                td.appendChild(txt); //<th>id</th>first_name<th></th>....<th></th>
+                tr.appendChild(td);
+            }
+
+            //데이터 생성
+            // for(let i=0; i<ary.length; i++){
+                for(let obj of ary){
+                tr = document.createElement('tr');
+                table.appendChild(tr); // <table><tr></tr></table>
+                for(let field in ary[0]){
+                    td= document.createElement('td');
+                    //for문 돌면서 ary[0] 데이터에 해당하는 [field]-id,first_name의 값을 가지고 온다  
+                    //txt = document.createTextNode(ary[i][field]);
+                    txt = document.createTextNode(obj[field]);
+                    td.appendChild(txt);
+                    tr.appendChild(td);
+                }
+
+            }
+
+
+            //div에 있는 show....
+            document.getElementById('show').appendChild(table);
+
+        }
+
+        
+    </script>
+</body>
+</html>
